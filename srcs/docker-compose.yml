@@ -51,7 +51,7 @@ services:
       networks:
          - inception
       volumes:
-         - wp-volume:/var/www/
+         - wordpress-volume:/var/www/
 
 volumes:
    mariadb-volume:
