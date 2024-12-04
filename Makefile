@@ -6,12 +6,11 @@ SCRIPT_PATH=srcs/requirements/tools/script.sh
 W_DATA=/root/data/wordpress
 M_DATA=/root/data/mariadb
 
-manage_data:
-	@echo "MANAGING ${NAME} CONFIGURATION\n"
-	sh $(SCRIPT_PATH)
-
-all: start
+all: run
 	@echo "LAUNCHING ${NAME}...\n"
+
+manage_data:
+	sh $(SCRIPT_PATH)
 
 build: manage_data
 	@echo "Building config for ${NAME}...\n"
@@ -21,7 +20,7 @@ run: build
 	@echo "STARTING ${NAME} CONTAINERS\n"
 	@docker-compose -f $(CONFIG_PATH) --env-file $(ENV) up -d
 
-start:
+start: manage_data
 	@echo "STARTING ${NAME} CONTAINERS\n"
 	@docker-compose -f $(CONFIG_PATH) --env-file $(ENV) up -d
 
