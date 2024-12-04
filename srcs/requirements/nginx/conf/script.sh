@@ -2,7 +2,7 @@
 
 mkdir -p /etc/nginx/ssl/
 
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ${KEY_} -out ${CERT_} -subj "/C=US/ST=SomeState/L=SomeCity/O=SomeOrganization/CN=smallem.42.fr";
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ${KEY_} -out ${CERT_} -subj "/C=US/ST=SomeState/L=SomeCity/O=SomeOrganization/CN=ibenhoci.42.fr";
 mv  ${CERT_} /etc/nginx/ssl/;
 mv  ${KEY_} /etc/nginx/ssl/;
 
