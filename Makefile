@@ -2,18 +2,13 @@ NAME = inception
 
 CONFIG_PATH = srcs/docker-compose.yml
 ENV = srcs/.env
-
-W_DATA = ~/data/wordpress
-M_DATA = ~/data/mariadb
+SCRIPT_PATH=srcs/requirements/tools/script.sh
+W_DATA=/root/data/wordpress
+M_DATA=/root/data/mariadb
 
 manage_data:
 	@echo "MANAGING ${NAME} CONFIGURATION\n"
-	@if [ ! -d "$W{_DATA}" ]; then \
-		mkdir -p ${W_DATA};
-	fi 
-	@if [ ! -d "$(M_DATA)" ]; then \
-		mkdir -p $(M_DATA); \
-	fi
+	sh $(SCRIPT_PATH)
 
 all: start
 	@echo "LAUNCHING ${NAME}...\n"
@@ -47,6 +42,6 @@ fclean:
 	@sudo rm -rf $(W_DATA) && rm -rf $(M_DATA)
 
 re:  fclean run
-	@echo "REBUILDING ${NAME} CONTAINERS\n"
+	@echo "REBUILDING ${NAME} CONTAINERS FINISHED\n"
 
 .PHONY	: all build down re clean fclean start run manage_data
