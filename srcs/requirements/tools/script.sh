@@ -1,9 +1,9 @@
 #!/bin/sh
 
 echo "MANAGING ${NAME} CONFIGURATION\n"
-if [ ! -d  /root/data/wordpress ]; then \
-	mkdir -p root/data/wordpress; \
+if [ ! -d  ~/data/wordpress ]; then \
+	mkdir -p ~/data/wordpress; \
 fi; \
-if [ ! -d /root/data/mariadb ]; then \
-	mkdir -p /root/data/mariadb; \
+if [ ! -d ~/data/mariadb ]; then \
+	mkdir -p ~/data/mariadb; \
 fi
